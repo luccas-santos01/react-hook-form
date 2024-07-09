@@ -1,0 +1,15 @@
+body {
+  background-color: #e9ecef;
+}
+
+h1 {
+  text-align: center;
+}
+
+.mensagemErro {
+  color: red;
+}
+
+.error-message {
+  font-size: 0.8em;
+}
