@@ -1,4 +1,6 @@
 import { useForm } from "react-hook-form";
+import Swal from 'sweetalert2';
+import "../App.css";
 
 interface FormValues {
   name: string;
@@ -11,26 +13,36 @@ interface FormValues {
 
 const Forms = () => {
   const { register, handleSubmit, watch, formState: { errors } } = useForm<FormValues>();
-  const onSubmit = (data: FormValues) => console.log(data);
   const password = watch("password");
-
+  const onSubmit = () => {
+    Swal.fire({
+      icon: 'success',
+      title: 'Cadastro realizado com sucesso!',
+      showConfirmButton: false,
+      timer: 1500
+    });
+  };
+  
   return (
-    <div>
+    <div className="container p-5 border border-gray border-5 rounded-4">
+      <h1 className="display-4">Formulário de Cadastro</h1>
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div>
-          <label htmlFor="name">Nome</label>
+        <div className="mb-3">
+          <label htmlFor="name" className="form-label">Nome</label>
           <input
+            className="form-control"
             id="name"
             type="text"
             placeholder="Seu nome"
             {...register("name", { required: "Nome é obrigatório" })}
           />
-          {errors.name && <span>{errors.name.message}</span>}
+          {errors.name && <span className="mensagemErro">{errors.name.message}</span>}
         </div>
 
-        <div>
-          <label htmlFor="email">E-mail</label>
+        <div className="mb-3">
+          <label htmlFor="email" className="form-label">E-mail</label>
           <input
+            className="form-control"
             id="email"
             type="email"
             placeholder="Seu e-mail"
@@ -42,12 +54,13 @@ const Forms = () => {
               }
             })}
           />
-          {errors.email && <span>{errors.email.message}</span>}
+          {errors.email && <span className="mensagemErro">{errors.email.message}</span>}
         </div>
 
-        <div>
-          <label htmlFor="password">Senha</label>
+        <div className="mb-3">
+          <label htmlFor="password" className="form-label">Senha</label>
           <input
+            className="form-control"
             id="password"
             type="password"
             placeholder="Senha"
@@ -63,12 +76,13 @@ const Forms = () => {
               }
             })}
           />
-          {errors.password && <span>{errors.password.message}</span>}
+          {errors.password && <span className="mensagemErro">{errors.password.message}</span>}
         </div>
 
-        <div>
-          <label htmlFor="confirmPassword">Confirmar Senha</label>
+        <div className="mb-3">
+          <label htmlFor="confirmPassword" className="form-label">Confirmar Senha</label>
           <input
+            className="form-control"
             id="confirmPassword"
             type="password"
             placeholder="Confirmação da senha"
@@ -77,12 +91,13 @@ const Forms = () => {
               validate: value => value === password || "As senhas não coincidem"
             })}
           />
-          {errors.confirmPassword && <span>{errors.confirmPassword.message}</span>}
+          {errors.confirmPassword && <span className="mensagemErro">{errors.confirmPassword.message}</span>}
         </div>
 
-        <div>
-          <label htmlFor="profession">Profissão</label>
+        <div className="mb-3">
+          <label htmlFor="profession" className="form-label">Profissão</label>
           <select
+            className="form-select"
             id="profession"
             {...register("profession", {
               required: "Profissão é obrigatória",
@@ -94,23 +109,24 @@ const Forms = () => {
             <option value="professor">Professor</option>
             <option value="other">Outra</option>
           </select>
-          {errors.profession && <span>{errors.profession.message}</span>}
+          {errors.profession && <span className="mensagemErro">{errors.profession.message}</span>}
         </div>
 
         <div>
-          <div>
+          <div className="mb-3 form-check">
             <input
+              className="form-check-input"
               id="privacyPolicy"
               type="checkbox"
               {...register("privacyPolicy", { required: "Aceitação dos termos de privacidade é obrigatória" })}
             />
-            <label htmlFor="privacyPolicy">Concordo com os termos de privacidade</label>
-            {errors.privacyPolicy && <span>{errors.privacyPolicy.message}</span>}
+            <label htmlFor="privacyPolicy" className="form-check-label">Concordo com os termos de privacidade</label>
+             {errors.privacyPolicy && <div className="error-message mensagemErro">{errors.privacyPolicy.message}</div>}
           </div>
         </div>
 
         <div>
-          <button type="submit">Criar conta</button>
+          <button type="submit" className="btn btn-outline-secondary">Criar conta</button>
         </div>
       </form>
     </div>
