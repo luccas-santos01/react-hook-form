@@ -20,3 +20,7 @@ Este é um componente de formulário de cadastro criado com React e react-hook-f
 
 1. Clone este repositório.
 2. Instale as dependências usando npm install ou yarn install.
+
+## Deploy
+
+Disponível neste [Link](https://github.com](https://luccas-santos01.github.io/react-hook-form/))
