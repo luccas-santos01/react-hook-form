@@ -4,17 +4,17 @@ Este é um componente de formulário de cadastro criado com React e react-hook-f
 
 ## Funcionalidades
 
-* Validação de campos de texto, email e senha.
-* Mensagens de erro específicas para cada campo.
-* Feedback visual usando sweetalert2 após a submissão bem-sucedida.
+- Validação de campos de texto, email e senha.
+- Mensagens de erro específicas para cada campo.
+- Feedback visual usando sweetalert2 após a submissão bem-sucedida.
 
 ## Tecnologias Utilizadas
 
-* React
-* Bootstrap 5
-* React-hook-form
-* sweetalert2
-* CSS para estilização
+- React
+- Bootstrap 5
+- React-hook-form
+- sweetalert2
+- CSS para estilização
 
 ## Como Usar
 
