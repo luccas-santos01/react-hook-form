@@ -23,4 +23,4 @@ Este é um componente de formulário de cadastro criado com React e react-hook-f
 
 ## Deploy
 
-Disponível neste [Link](https://github.com](https://luccas-santos01.github.io/react-hook-form/))
+Disponível neste [Link](https://luccas-santos01.github.io/react-hook-form/)
